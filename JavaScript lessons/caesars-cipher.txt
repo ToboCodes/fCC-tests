@@ -1,0 +1,19 @@
+function rot13(str) {
+    console.log(str);
+    const abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let cipher = [];
+    for (let i = 0; i < str.length; i++) {
+            let shift = abc.indexOf(str[i]) + 13;
+            if (abc.indexOf(str[i]) == -1) {
+                cipher.push(str[i]);
+            } else if (shift < abc.length) {
+                cipher.push(abc[shift]);
+            } else if (shift >= abc.length) {
+                shift = shift - abc.length;
+                cipher.push(abc[shift]);
+            }
+      }
+    return cipher.join("");
+  }
+
+rot13("SERR PBQR PNZC");

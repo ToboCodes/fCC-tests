@@ -1,0 +1,11 @@
+const squareList = arr => {
+  // Only change code below this line
+  const arrInt = arr.filter(num => num % 1 === 0 && num > 0);
+  let squareArr = [];
+  arrInt.reduce((arr, num) => squareArr.push(num*num), 0);
+  return squareArr
+  // Only change code above this line
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+console.log(squaredIntegers);

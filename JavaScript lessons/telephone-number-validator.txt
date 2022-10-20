@@ -1,0 +1,23 @@
+function telephoneCheck(str) {
+  if (/[^\d|() -]/g.test(str) || /^[^\d|(]/.test(str) || /\D$/.test(str)) {
+    return false;
+  } else if (/[()]/.test(str)) {
+    if (!/[(]/.test(str) || !/[)]/.test(str)) {
+      return false;
+    }
+  } else if (/\D$/.test(str)) {
+    return false;
+  } else if (/^[)]?\d{2}\D/.test(str)) {
+    return false;
+  }
+  str = str.replace(/\D/gi,"");
+  if (str.length == 11) {
+    return /^1/.test(str);
+  } else if (str.length == 10) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+telephoneCheck("555-555-5555");
